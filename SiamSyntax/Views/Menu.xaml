@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SiamSyntax.Views.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             Width="200"
+             Padding="10"
+             Background="LightGray">
+
+    <StackPanel Orientation="Vertical">
+
+        <Button Content="New" Margin="0,0,0,10" Padding="8" />
+
+        <Button Content="Open" Margin="0,0,0,10" Padding="8" Command="{Binding OpenSelectedNoteCommand}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="Background" Value="Gray"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsOpenNoteEnabled}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Setter Property="Background" Value="LightGreen"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button Content="Exit" Margin="0,0,0,10" Padding="8" />
+
+    </StackPanel>
+
+</UserControl>
